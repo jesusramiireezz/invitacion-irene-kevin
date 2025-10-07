@@ -6,6 +6,7 @@ body {
   animation: lightMove 18s ease-in-out infinite alternate;
   color: #2F2F2F;
   overflow: hidden;
+  height: -webkit-fill-available;
 }
 
 h1, h2, h3 {

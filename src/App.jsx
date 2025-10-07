@@ -16,13 +16,14 @@ export default function App() {
     <div
       style={{
         backgroundColor: "#FDFBF7",
-        minHeight: "100dvh", // ✅ centrado real en móviles modernos
+        height: "100svh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         overflow: "hidden",
         padding: "0 16px",
-        position: "relative", // para que Petals se posicione bien
+        position: "relative",
+        transform: "translateY(-5%)", 
       }}
     >
       {step === 1 && <TulipLoader />}
