@@ -8,7 +8,7 @@ export default function App() {
   const [step, setStep] = useState(1); // 1 = tulipán, 2 = tarjeta
 
   useEffect(() => {
-    const t1 = setTimeout(() => setStep(2), 3600); // cuando termina el tulipán
+    const t1 = setTimeout(() => setStep(2), 3600); // pasa al paso 2 tras 3.6s
     return () => clearTimeout(t1);
   }, []);
 
@@ -20,19 +20,19 @@ export default function App() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        overflow: "hidden", // evita que los pétalos salgan de pantalla
+        overflow: "hidden", // evita scroll por los pétalos
       }}
     >
       {step === 1 && <TulipLoader />}
 
       {step === 2 && (
         <>
-          {/* 🌸 pétalos animados */}
+          {/* 🌸 Pétalos flotando */}
           <Petals />
 
-          {/* 💌 tarjeta elegante */}
+          {/* 💌 Tarjeta elegante */}
           <motion.div
-            className="invite-card"
+            className="invite-card fade-in-all"
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
@@ -47,6 +47,7 @@ export default function App() {
                 repeatType: "mirror",
               }}
             />
+
             <h1>
               Irene{" "}
               <span
