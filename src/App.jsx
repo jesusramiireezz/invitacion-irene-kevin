@@ -20,7 +20,8 @@ export default function App() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        overflow: "hidden", // evita scroll por los pétalos
+        overflow: "hidden",
+        padding: "0 16px",
       }}
     >
       {step === 1 && <TulipLoader />}
