@@ -28,8 +28,8 @@ export default function App() {
 
       {step === 2 && (
         <>
-          {/* 🌸 Pétalos flotando */}
-          <Petals />
+          {/* 🌸 Pétalos detrás */}
+          <Petals zIndex={1} opacity={0.5} blur={1.2} />
 
           {/* 💌 Tarjeta elegante */}
           <motion.div
@@ -67,6 +67,9 @@ export default function App() {
             <p className="phrase">Gracias por ser parte de nuestro viaje ✨</p>
             <p className="date">14 . Junio . 2025</p>
           </motion.div>
+
+          {/* 🌸 Pétalos por delante (muy sutiles) */}
+          <Petals zIndex={3} opacity={0.35} blur={2} />
         </>
       )}
     </div>

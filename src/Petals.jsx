@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-export default function Petals() {
+export default function Petals({ zIndex = 1, opacity = 0.7, blur = 1 }) {
   const [positions, setPositions] = useState([]);
 
   useEffect(() => {
-    const newPetals = Array.from({ length: 12 }, () => ({
+    const newPetals = Array.from({ length: 10 }, () => ({
       startX: Math.random() * window.innerWidth,
       endX: Math.random() * window.innerWidth,
       delay: Math.random() * 5,
@@ -22,7 +22,7 @@ export default function Petals() {
         position: "absolute",
         inset: 0,
         overflow: "hidden",
-        zIndex: 1,
+        zIndex,
         pointerEvents: "none",
       }}
     >
@@ -39,7 +39,7 @@ export default function Petals() {
           animate={{
             y: [0, window.innerHeight + 40],
             x: [p.startX, p.endX],
-            opacity: [0, 0.6, 0],
+            opacity: [0, opacity, 0],
             rotate: [p.rotation, p.rotation + 360],
           }}
           transition={{
@@ -55,8 +55,8 @@ export default function Petals() {
             background:
               "radial-gradient(circle at 30% 30%, rgba(247,187,187,0.85) 0%, rgba(239,154,154,0.7) 60%, rgba(247,187,187,0.85) 100%)",
             borderRadius: "50% 60% 60% 40%",
-            filter: "blur(1px)",
-            opacity: 0.7,
+            filter: `blur(${blur}px)`,
+            opacity,
             transformOrigin: "center",
           }}
         />
