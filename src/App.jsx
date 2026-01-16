@@ -1,79 +1,54 @@
 import { useState, useEffect } from "react";
-import TulipLoader from "./TulipLoader";
-import { motion } from "framer-motion";
-import Petals from "./Petals";
-import "./App.css";
+import { AnimatePresence } from "framer-motion";
+
+import TulipLoader from "./components/TulipLoader";
+import InviteCard from "./components/InviteCard";
+import InfoCardsSection from "./components/InfoCardsSection";
+import ItinerarySection from "./components/ItinerarySection";
+import GiftSection from "./components/GiftSection";
+import RSVPSection from "./components/RSVPSection";
 
 export default function App() {
-  const [step, setStep] = useState(1); // 1 = tulipán, 2 = tarjeta
+  const [showTulip, setShowTulip] = useState(true);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setStep(2), 3600); // pasa al paso 2 tras 3.6s
-    return () => clearTimeout(t1);
+    const t = setTimeout(() => {
+      setShowTulip(false);
+    }, 1800);
+    return () => clearTimeout(t);
   }, []);
 
   return (
-    <div
-      style={{
-        backgroundColor: "#FDFBF7",
-        height: "100svh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        overflow: "hidden",
-        padding: "0 16px",
-        position: "relative",
-        transform: "translateY(-5%)", 
-      }}
-    >
-      {step === 1 && <TulipLoader />}
+    <>
+      <main className={`app-container ${showTulip ? "no-scroll" : ""}`}>
+        {/* HERO */}
+        <section className="screen">
+          <InviteCard reveal={!showTulip} />
+        </section>
 
-      {step === 2 && (
-        <>
-          {/* 🌸 Pétalos detrás */}
-          <Petals zIndex={1} opacity={0.5} blur={1.2} />
+        {/* FALTAN + UBICACIÓN */}
+        <section className="screen">
+          <InfoCardsSection />
+        </section>
 
-          {/* 💌 Tarjeta elegante */}
-          <motion.div
-            className="invite-card fade-in-all"
-            initial={{ opacity: 0, scale: 0.9, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          >
-            <motion.div
-              className="card-glow"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 1, 0.4, 1] }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatType: "mirror",
-              }}
-            />
+        {/* ITINERARIO */}
+        <section className="screen">
+          <ItinerarySection />
+        </section>
 
-            <h1>
-              Irene{" "}
-              <span
-                style={{
-                  fontFamily: "'Lora', serif",
-                  fontStyle: "italic",
-                  color: "#BBA77D",
-                  fontWeight: 500,
-                }}
-              >
-                &
-              </span>{" "}
-              Kevin
-            </h1>
+        {/* REGALO */}
+        <section className="screen">
+          <GiftSection />
+        </section>
 
-            <p className="phrase">Gracias por ser parte de nuestro viaje ✨</p>
-            <p className="date">14 . Junio . 2025</p>
-          </motion.div>
+        <section className="screen">
+          <RSVPSection />
+        </section>
+      </main>
 
-          {/* 🌸 Pétalos por delante (muy sutiles) */}
-          <Petals zIndex={3} opacity={0.35} blur={2} />
-        </>
-      )}
-    </div>
+      <AnimatePresence>
+        {showTulip && <TulipLoader key="tulip" />}
+      </AnimatePresence>
+    </>
   );
 }

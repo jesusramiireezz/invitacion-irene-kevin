@@ -1,0 +1,21 @@
+.petals-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .petal {
+    position: absolute;
+    width: 22px;
+    height: 14px;
+    background: radial-gradient(
+      circle at 30% 30%,
+      rgba(247,187,187,0.85) 0%,
+      rgba(239,154,154,0.7) 60%,
+      rgba(247,187,187,0.85) 100%
+    );
+    border-radius: 50% 60% 60% 40%;
+    transform-origin: center;
+  }
+  

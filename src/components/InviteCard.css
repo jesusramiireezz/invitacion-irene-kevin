@@ -1,0 +1,123 @@
+.invite-hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* IMAGEN BASE (DESKTOP) */
+.hero-image-mobile {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  z-index: 0;
+}
+
+/* MÓVIL: RECORTE A LA DERECHA (COMO ANTES) */
+@media (max-width: 768px) {
+  .hero-image-mobile {
+    object-position: 90% bottom;
+  }
+}
+
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 250, 240, 0.65),
+    rgba(255, 250, 240, 0.45)
+  );
+  z-index: 1;
+}
+
+/* Contenido */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 24px;
+  text-align: center;
+  color: #2f2f2f;
+}
+
+.hero-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #6b7b5a;
+}
+
+.hero-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(46px, 10vw, 84px);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.hero-names .name {
+  display: block;
+}
+
+.hero-names .amp {
+  display: block;
+  font-size: 0.6em;
+  font-weight: 300;
+  margin: 6px 0;
+}
+
+.hero-date {
+  margin-top: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  opacity: 0.85;
+}
+
+/* Flecha */
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+  width: 14px;
+  height: 14px;
+  border-right: 1.5px solid #6f6f6f;
+  border-bottom: 1.5px solid #6f6f6f;
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px) rotate(45deg);
+    opacity: 1;
+  }
+}

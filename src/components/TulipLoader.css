@@ -1,0 +1,17 @@
+.tulip-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #fbf6ee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+  
+  .tulip-img {
+    width: 180px;
+    height: 180px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+    user-select: none;
+  }
+  

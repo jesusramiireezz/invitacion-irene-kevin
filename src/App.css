@@ -1,117 +1,47 @@
 body {
   margin: 0;
   font-family: 'Lora', serif;
-  background: radial-gradient(circle at 50% 50%, #fffaf3 0%, #fdfbf7 60%, #fbf8f3 100%);
-  background-size: 200% 200%;
-  animation: lightMove 18s ease-in-out infinite alternate;
+  background: #fbf6ee;
   color: #2F2F2F;
-  overflow: hidden;
-  height: -webkit-fill-available;
 }
 
+/* CONTENEDOR APP */
+.app-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* SNAP SOLO EN MÓVIL */
+@media (max-width: 1023px) {
+  .app-container {
+    scroll-snap-type: y mandatory;
+  }
+
+  .screen {
+    scroll-snap-align: start;
+  }
+}
+
+/* Desktop sin snap */
+@media (min-width: 1024px) {
+  .app-container {
+    scroll-snap-type: none;
+  }
+}
+
+/* Bloqueo mientras loader */
+.app-container.no-scroll {
+  overflow: hidden;
+}
+
+/* Cada pantalla */
+.screen {
+  min-height: 100vh;
+}
+
+/* Tipos */
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
-}
-
-/* Tarjeta flotante */
-.invite-card {
-  position: relative;
-  background: white;
-  border: 1px solid #d6c39b;
-  border-radius: 14px;
-  padding: 36px 48px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  max-width: 420px;
-  width: min(90%, 380px);
-  margin: 0 auto;
-  transition: all 0.6s ease;
-  z-index: 2;
-  animation: floatCard 6s ease-in-out infinite alternate;
-}
-
-
-.invite-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.1);
-}
-
-/* Luz dorada detrás de la tarjeta */
-.card-glow {
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  background: linear-gradient(120deg, rgba(215,186,137,0.25), transparent 70%);
-  filter: blur(8px);
-  z-index: 0;
-  opacity: 0.4;
-}
-
-/* Textos dentro */
-.invite-card h1 {
-  position: relative;
-  z-index: 2;
-  color: #9B8B65;
-  font-size: 2.2rem;
-  letter-spacing: 1px;
-  margin-bottom: 14px;
-}
-
-.invite-card .phrase {
-  position: relative;
-  z-index: 2;
-  font-family: 'Lora', serif;
-  color: #BBA77D;
-  font-size: 1.15rem;
-  margin-bottom: 12px;
-}
-
-.invite-card .date {
-  position: relative;
-  z-index: 2;
-  font-size: 1rem;
-  color: #A48C63;
-  letter-spacing: 0.1em;
-}
-
-@keyframes lightMove {
-  0% { background-position: 50% 40%; }
-  100% { background-position: 60% 60%; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in-all {
-  animation: fadeIn 1.4s ease-out forwards;
-}
-
-/* Flotación sutil */
-@keyframes floatCard {
-  0% { transform: translateY(0px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08); }
-  100% { transform: translateY(-8px); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12); }
-}
-
-/* Responsive mobile */
-@media (max-width: 600px) {
-  .invite-card {
-    padding: 28px 22px;
-    max-width: 90%;
-    border-radius: 10px;
-  }
-
-  .invite-card h1 {
-    font-size: 1.8rem;
-  }
-
-  .invite-card .phrase {
-    font-size: 1rem;
-  }
-
-  .invite-card .date {
-    font-size: 0.9rem;
-  }
 }
