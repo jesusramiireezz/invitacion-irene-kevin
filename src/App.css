@@ -5,15 +5,32 @@ body {
   color: #2F2F2F;
 }
 
-/* CONTENEDOR APP */
+/* CONTENEDOR PRINCIPAL */
 .app-container {
-  height: 100vh;
+  min-height: 100svh;          /* altura real en móvil */
   overflow-y: auto;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* SNAP SOLO EN MÓVIL */
-@media (max-width: 1023px) {
+/* BLOQUEO MIENTRAS LOADER */
+.app-container.no-scroll {
+  overflow: hidden;
+}
+
+/* CADA SECCIÓN */
+.screen {
+  min-height: 100svh;
+}
+
+/* TIPOGRAFÍAS */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+/* ===== DESKTOP: SNAP SI QUIERES ===== */
+@media (min-width: 1024px) {
   .app-container {
     scroll-snap-type: y mandatory;
   }
@@ -23,25 +40,16 @@ body {
   }
 }
 
-/* Desktop sin snap */
-@media (min-width: 1024px) {
+/* ===== MÓVIL: SCROLL NORMAL ===== */
+@media (max-width: 1023px) {
   .app-container {
-    scroll-snap-type: none;
+    scroll-snap-type: none;     /* 👈 CLAVE */
   }
-}
 
-/* Bloqueo mientras loader */
-.app-container.no-scroll {
-  overflow: hidden;
-}
-
-/* Cada pantalla */
-.screen {
-  min-height: 100vh;
-}
-
-/* Tipos */
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
+  .info-section,
+  .itinerary-section,
+  .gift-section,
+  .rsvp-section {
+    padding: 48px 20px;
+  }
 }
