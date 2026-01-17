@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+
 import InviteCard from "./components/InviteCard";
 import InfoCardsSection from "./components/InfoCardsSection";
 import ItinerarySection from "./components/ItinerarySection";
@@ -6,56 +7,107 @@ import RSVPSection from "./components/RSVPSection";
 import EnvelopeIntro from "./components/EnvelopeIntro";
 import ParticipaSection from "./components/ParticipaSection";
 
-import song from "./assets/a-un-milimetrro-de-ti.mp3";
+import song from "./assets/a-un-milimetrro-de-ti-recorte.mp3";
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);
+  const [audioPaused, setAudioPaused] = useState(false);
   const audioRef = useRef(null);
+
+  const playAudio = () => {
+    if (!audioRef.current) return;
+
+    audioRef.current.volume = 0.6;
+    audioRef.current
+      .play()
+      .then(() => setAudioPaused(false))
+      .catch(() => {});
+  };
+
+  /* CONTROL DE VISIBILIDAD */
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        audio.pause();
+        setAudioPaused(true);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
 
   const handleIntroFinish = () => {
     setShowIntro(false);
-
-    // 🔊 Arrancamos la música tras interacción válida
-    if (audioRef.current) {
-      audioRef.current.volume = 0.6;
-      audioRef.current.play().catch(() => {
-        // por si algún navegador raro falla, no rompemos nada
-        console.log("Autoplay bloqueado");
-      });
-    }
+    playAudio(); // interacción válida
   };
 
   return (
     <>
-      {/* AUDIO GLOBAL */}
+      {/* AUDIO */}
       <audio ref={audioRef} src={song} preload="auto" />
 
-      {/* INTRO DEL SOBRE */}
+      {/* INTRO */}
       {showIntro && <EnvelopeIntro onFinish={handleIntroFinish} />}
 
-      {/* CONTENIDO PRINCIPAL */}
+      {/* CONTENIDO */}
       {!showIntro && (
-        <main className="app-container">
-          <section className="screen">
-            <InviteCard reveal />
-          </section>
+        <>
+          {/* BOTÓN SONIDO (solo si está pausado) */}
+          {audioPaused && (
+            <button
+              onClick={playAudio}
+              style={{
+                position: "fixed",
+                bottom: 20,
+                right: 20,
+                zIndex: 9999,
+                background: "#6b7b5a",
+                color: "#fff",
+                border: "none",
+                borderRadius: "999px",
+                padding: "10px 14px",
+                fontFamily: "Inter, sans-serif",
+                fontSize: "12px",
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                cursor: "pointer",
+              }}
+            >
+              Activar sonido
+            </button>
+          )}
 
-          <section className="screen">
-            <InfoCardsSection />
-          </section>
+          <main className="app-container">
+            <section className="screen">
+              <InviteCard reveal />
+            </section>
 
-          <section className="screen">
-            <ItinerarySection />
-          </section>
-          {/* PARTICIPA */}
-          <section className="screen">
-            <ParticipaSection />
-          </section>
+            <section className="screen">
+              <InfoCardsSection />
+            </section>
 
-          <section className="screen">
-            <RSVPSection />
-          </section>
-        </main>
+            <section className="screen">
+              <ItinerarySection />
+            </section>
+
+            <section className="screen">
+              <ParticipaSection />
+            </section>
+
+            <section className="screen">
+              <RSVPSection />
+            </section>
+          </main>
+        </>
       )}
     </>
   );
