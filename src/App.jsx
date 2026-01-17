@@ -1,54 +1,62 @@
-import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
-
-import TulipLoader from "./components/TulipLoader";
+import { useState, useRef } from "react";
 import InviteCard from "./components/InviteCard";
 import InfoCardsSection from "./components/InfoCardsSection";
 import ItinerarySection from "./components/ItinerarySection";
-import GiftSection from "./components/GiftSection";
 import RSVPSection from "./components/RSVPSection";
+import EnvelopeIntro from "./components/EnvelopeIntro";
+import ParticipaSection from "./components/ParticipaSection";
+
+import song from "./assets/a-un-milimetrro-de-ti.mp3";
 
 export default function App() {
-  const [showTulip, setShowTulip] = useState(true);
+  const [showIntro, setShowIntro] = useState(true);
+  const audioRef = useRef(null);
 
-  useEffect(() => {
-    const t = setTimeout(() => {
-      setShowTulip(false);
-    }, 1800);
-    return () => clearTimeout(t);
-  }, []);
+  const handleIntroFinish = () => {
+    setShowIntro(false);
+
+    // 🔊 Arrancamos la música tras interacción válida
+    if (audioRef.current) {
+      audioRef.current.volume = 0.6;
+      audioRef.current.play().catch(() => {
+        // por si algún navegador raro falla, no rompemos nada
+        console.log("Autoplay bloqueado");
+      });
+    }
+  };
 
   return (
     <>
-      <main className={`app-container ${showTulip ? "no-scroll" : ""}`}>
-        {/* HERO */}
-        <section className="screen">
-          <InviteCard reveal={!showTulip} />
-        </section>
+      {/* AUDIO GLOBAL */}
+      <audio ref={audioRef} src={song} preload="auto" />
 
-        {/* FALTAN + UBICACIÓN */}
-        <section className="screen">
-          <InfoCardsSection />
-        </section>
+      {/* INTRO DEL SOBRE */}
+      {showIntro && <EnvelopeIntro onFinish={handleIntroFinish} />}
 
-        {/* ITINERARIO */}
-        <section className="screen">
-          <ItinerarySection />
-        </section>
+      {/* CONTENIDO PRINCIPAL */}
+      {!showIntro && (
+        <main className="app-container">
+          <section className="screen">
+            <InviteCard reveal />
+          </section>
 
-        {/* REGALO */}
-        <section className="screen">
-          <GiftSection />
-        </section>
+          <section className="screen">
+            <InfoCardsSection />
+          </section>
 
-        <section className="screen">
-          <RSVPSection />
-        </section>
-      </main>
+          <section className="screen">
+            <ItinerarySection />
+          </section>
+          {/* PARTICIPA */}
+          <section className="screen">
+            <ParticipaSection />
+          </section>
 
-      <AnimatePresence>
-        {showTulip && <TulipLoader key="tulip" />}
-      </AnimatePresence>
+          <section className="screen">
+            <RSVPSection />
+          </section>
+        </main>
+      )}
     </>
   );
 }

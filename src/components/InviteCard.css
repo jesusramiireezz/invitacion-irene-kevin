@@ -5,7 +5,7 @@
   overflow: hidden;
 }
 
-/* IMAGEN BASE (DESKTOP) */
+/* IMAGEN BASE */
 .hero-image-mobile {
   position: absolute;
   inset: 0;
@@ -16,7 +16,7 @@
   z-index: 0;
 }
 
-/* MÓVIL: RECORTE A LA DERECHA (COMO ANTES) */
+/* MÓVIL */
 @media (max-width: 768px) {
   .hero-image-mobile {
     object-position: 90% bottom;
@@ -58,6 +58,7 @@
   gap: 14px;
 }
 
+/* Textos */
 .hero-eyebrow {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
@@ -94,30 +95,42 @@
   opacity: 0.85;
 }
 
-/* Flecha */
+/* CTA */
 .hero-scroll {
   position: absolute;
   bottom: 32px;
+
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-.arrow {
-  width: 14px;
-  height: 14px;
-  border-right: 1.5px solid #6f6f6f;
-  border-bottom: 1.5px solid #6f6f6f;
+.hero-cta {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: #2f2f2f;
+  opacity: 0.75;
+}
+
+.hero-arrow {
+  width: 10px;
+  height: 10px;
+  border-right: 1px solid #2f2f2f;
+  border-bottom: 1px solid #2f2f2f;
   transform: rotate(45deg);
-  animation: bounce 2s infinite;
+  opacity: 0.6;
 }
 
-@keyframes bounce {
+
+@keyframes arrowFloat {
   0%, 100% {
     transform: translateY(0) rotate(45deg);
-    opacity: 0.6;
+    opacity: 0.5;
   }
   50% {
-    transform: translateY(8px) rotate(45deg);
-    opacity: 1;
+    transform: translateY(6px) rotate(45deg);
+    opacity: 0.8;
   }
 }

@@ -1,112 +1,148 @@
 .rsvp-section {
-    min-height: 100vh;
-    padding: 0 24px;
-  
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(251, 246, 238, 0.92),
-        rgba(251, 246, 238, 0.92)
-      ),
-      url("../assets/finca.jpeg");
-    background-size: cover;
-    background-position: center;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .rsvp-wrapper {
-    width: 100%;
-    max-width: 420px;
-  }
-  
+  min-height: 100vh;
+  padding: 0 24px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(251, 246, 238, 0.92),
+      rgba(251, 246, 238, 0.92)
+    ),
+    url("../assets/finca.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rsvp-wrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+.rsvp-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(6px);
+  border-radius: 18px;
+  padding: 44px 28px;
+  text-align: center;
+}
+
+/* Header */
+.rsvp-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #6b7b5a;
+}
+
+.rsvp-divider {
+  width: 32px;
+  height: 1px;
+  background: #6b7b5a;
+  margin: 14px auto 28px;
+  opacity: 0.55;
+}
+
+/* Texto emocional */
+.rsvp-intro-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #2f2f2f;
+
+  text-align: justify;
+  text-justify: inter-word;
+
+  margin-bottom: 28px;
+  opacity: 0.9;
+}
+
+/* Form */
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* INPUTS NORMALES */
+.rsvp-form input {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.85);
+}
+
+/* TEXTAREA (AQUÍ SÍ) */
+.rsvp-form textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.85);
+
+  resize: none;
+  min-height: 90px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+/* Radios */
+.rsvp-choice {
+  display: flex;
+  justify-content: space-around;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #2f2f2f;
+}
+
+.rsvp-choice input {
+  margin-right: 6px;
+}
+
+/* Botón */
+.rsvp-form button {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 999px;
+  border: none;
+  background: #6b7b5a;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Success */
+.rsvp-success span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+}
+
+.rsvp-success p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
   .rsvp-card {
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(6px);
-    border-radius: 18px;
-    padding: 44px 28px;
-    text-align: center;
+    padding: 36px 22px;
   }
-  
-  /* Header */
-  .rsvp-eyebrow {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: #6b7b5a;
-  }
-  
-  .rsvp-divider {
-    width: 32px;
-    height: 1px;
-    background: #6b7b5a;
-    margin: 14px auto 28px;
-    opacity: 0.55;
-  }
-  
-  /* Form */
-  .rsvp-form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  
-  .rsvp-form input,
-  .rsvp-form textarea {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    padding: 10px 12px;
-    border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.08);
-    background: rgba(255,255,255,0.85);
-  }
-  
-  .rsvp-choice {
-    display: flex;
-    justify-content: space-around;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    color: #2f2f2f;
-  }
-  
-  .rsvp-choice input {
-    margin-right: 6px;
-  }
-  
-  .rsvp-form button {
-    margin-top: 10px;
-    padding: 12px;
-    border-radius: 999px;
-    border: none;
-    background: #6b7b5a;
-    color: white;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-  
-  /* Success */
-  .rsvp-success span {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-  }
-  
-  .rsvp-success p {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: #555;
-    margin-top: 8px;
-  }
-  
-  /* Mobile */
-  @media (max-width: 480px) {
-    .rsvp-card {
-      padding: 36px 22px;
-    }
-  }
-  
+}
+.rsvp-form input:focus,
+.rsvp-form textarea:focus {
+  outline: none;
+  border-color: #6b7b5a; /* verde boda */
+  box-shadow: 0 0 0 2px rgba(107, 123, 90, 0.25);
+}

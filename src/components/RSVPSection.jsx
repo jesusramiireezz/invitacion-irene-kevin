@@ -5,10 +5,10 @@ import "./RSVPSection.css";
 export default function RSVPSection() {
   const [sent, setSent] = useState(false);
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSent(true);
-  }
+  };
 
   return (
     <section className="rsvp-section">
@@ -20,20 +20,23 @@ export default function RSVPSection() {
         transition={{ duration: 0.8 }}
       >
         <div className="rsvp-card">
+          <span className="rsvp-eyebrow">Confirmar asistencia</span>
+          <div className="rsvp-divider" />
+
+          {/* TEXTO EMOCIONAL */}
+          <p className="rsvp-intro-text">
+            Hay momentos en la vida que son especiales por sí solos,
+            pero compartirlos con las personas que queremos
+            los hace inolvidables.
+          </p>
+
           {!sent ? (
             <>
-              <span className="rsvp-eyebrow">Confirmar asistencia</span>
-              <div className="rsvp-divider" />
-
               <form className="rsvp-form" onSubmit={handleSubmit}>
                 <input
                   type="text"
-                  placeholder="Nombre completo"
+                  placeholder="Tu nombre"
                   required
-                />
-                                <input
-                  type="text"
-                  placeholder="Email (opcional)"
                 />
 
                 <div className="rsvp-choice">
@@ -47,7 +50,11 @@ export default function RSVPSection() {
                   </label>
                 </div>
 
-
+                {/* CANCIÓN */}
+                <input
+                  type="text"
+                  placeholder="Canción que te gustaría que sonara (opcional)"
+                />
 
                 <textarea
                   placeholder="Intolerancias, alergias o comentario"
