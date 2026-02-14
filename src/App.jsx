@@ -6,6 +6,7 @@ import ItinerarySection from "./components/ItinerarySection";
 import RSVPSection from "./components/RSVPSection";
 import EnvelopeIntro from "./components/EnvelopeIntro";
 import ParticipaSection from "./components/ParticipaSection";
+import PolaroidSection from "./components/PolaroidSection";
 
 import song from "./assets/a-un-milimetrro-de-ti-recorte.mp3";
 
@@ -93,6 +94,9 @@ export default function App() {
 
             <section className="screen">
               <InfoCardsSection />
+            </section>
+            <section className="screen">
+              <PolaroidSection />
             </section>
 
             <section className="screen">

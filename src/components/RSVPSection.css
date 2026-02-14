@@ -30,7 +30,8 @@
   text-align: center;
 }
 
-/* Header */
+/* ===== HEADER ===== */
+
 .rsvp-eyebrow {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
@@ -47,7 +48,8 @@
   opacity: 0.55;
 }
 
-/* Texto emocional */
+/* ===== TEXTO ===== */
+
 .rsvp-intro-text {
   font-family: 'Cormorant Garamond', serif;
   font-size: 18px;
@@ -61,14 +63,16 @@
   opacity: 0.9;
 }
 
-/* Form */
+/* ===== FORM ===== */
+
 .rsvp-form {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-/* INPUTS NORMALES */
+/* INPUTS */
+
 .rsvp-form input {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
@@ -78,7 +82,6 @@
   background: rgba(255,255,255,0.85);
 }
 
-/* TEXTAREA (AQUÍ SÍ) */
 .rsvp-form textarea {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
@@ -93,7 +96,17 @@
   overflow-y: auto;
 }
 
-/* Radios */
+/* FOCUS */
+
+.rsvp-form input:focus,
+.rsvp-form textarea:focus {
+  outline: none;
+  border-color: #6b7b5a;
+  box-shadow: 0 0 0 2px rgba(107, 123, 90, 0.25);
+}
+
+/* ASISTENCIA */
+
 .rsvp-choice {
   display: flex;
   justify-content: space-around;
@@ -106,7 +119,45 @@
   margin-right: 6px;
 }
 
-/* Botón */
+/* ===== MENU ===== */
+
+.rsvp-menu {
+  margin-top: 12px;
+  padding: 14px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.55);
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rsvp-menu-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b7b5a;
+}
+
+.rsvp-menu label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #2f2f2f;
+  line-height: 1.4;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+.rsvp-menu input {
+  margin-right: 8px;
+  margin-top: 2px;
+}
+
+/* ===== BOTÓN ===== */
+
 .rsvp-form button {
   margin-top: 10px;
   padding: 12px;
@@ -121,7 +172,8 @@
   cursor: pointer;
 }
 
-/* Success */
+/* ===== SUCCESS ===== */
+
 .rsvp-success span {
   font-family: 'Cormorant Garamond', serif;
   font-size: 26px;
@@ -134,15 +186,10 @@
   margin-top: 8px;
 }
 
-/* Mobile */
+/* ===== MOBILE ===== */
+
 @media (max-width: 480px) {
   .rsvp-card {
     padding: 36px 22px;
   }
-}
-.rsvp-form input:focus,
-.rsvp-form textarea:focus {
-  outline: none;
-  border-color: #6b7b5a; /* verde boda */
-  box-shadow: 0 0 0 2px rgba(107, 123, 90, 0.25);
 }

@@ -16,10 +16,10 @@ export default function ItinerarySection() {
           <div className="itinerary-divider" />
 
           <div className="itinerary-timeline">
-            <Item icon="fa-location-dot" time="18:00" title="Llegada a la finca" />
-            <Item icon="fa-ring" time="18:30" title="Ceremonia civil" />
-            <Item icon="fa-champagne-glasses" time="19:30" title="Aperitivo" />
-            <Item icon="fa-utensils" time="21:00" title="Cena" />
+            <Item icon="fa-location-dot" time="17:30" title="Llegada a la finca" />
+            <Item icon="fa-ring" time="18:00" title="Ceremonia" />
+            <Item icon="fa-champagne-glasses" time="19:00" title="Aperitivo" />
+            <Item icon="fa-utensils" time="20:30" title="Cena" />
             <Item icon="fa-music" time="23:00" title="Fiesta" />
             <Item icon="fa-moon" time="01:00" title="Resopón" />
           </div>

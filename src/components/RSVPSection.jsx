@@ -2,12 +2,66 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import "./RSVPSection.css";
 
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbx3bPHt9AjUaHc0DusKGR4GlK-i3wjZQ4mIrkOaxCdVsjd6niD4GRDfPIMkPh2AaEEK7g/exec";
+
 export default function RSVPSection() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [name, setName] = useState("");
+  const [attendance, setAttendance] = useState(""); // yes / no
+  const [menu, setMenu] = useState("");
+  const [song, setSong] = useState("");
+  const [comments, setComments] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+
+    const payload = {
+      name,
+      attendance: attendance === "yes" ? "Sí" : "No",
+      menu,
+      song,
+      comments
+    };
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      setSent(true);
+    } catch (err) {
+      alert("Ha ocurrido un error. Inténtalo de nuevo.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const renderSuccessMessage = () => {
+    if (attendance === "yes") {
+      return (
+        <>
+          <span>¡Gracias por avisarnos!</span>
+          <p>Nos hace mucha ilusión contar contigo 💛</p>
+        </>
+      );
+    }
+
+    return (
+      <>
+        <span>¡Gracias por avisarnos!</span>
+        <p>
+          Sentimos mucho que no puedas acompañarnos,
+          pero te tendremos muy presente ese día 🤍
+        </p>
+      </>
+    );
   };
 
   return (
@@ -23,7 +77,6 @@ export default function RSVPSection() {
           <span className="rsvp-eyebrow">Confirmar asistencia</span>
           <div className="rsvp-divider" />
 
-          {/* TEXTO EMOCIONAL */}
           <p className="rsvp-intro-text">
             Hay momentos en la vida que son especiales por sí solos,
             pero compartirlos con las personas que queremos
@@ -31,43 +84,98 @@ export default function RSVPSection() {
           </p>
 
           {!sent ? (
-            <>
-              <form className="rsvp-form" onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  placeholder="Tu nombre"
-                  required
-                />
+            <form className="rsvp-form" onSubmit={handleSubmit}>
+              {/* NOMBRE */}
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
 
-                <div className="rsvp-choice">
+              {/* ASISTENCIA */}
+              <div className="rsvp-choice">
+                <label>
+                  <input
+                    type="radio"
+                    name="attendance"
+                    value="yes"
+                    required
+                    onChange={(e) => setAttendance(e.target.value)}
+                  />
+                  Sí, asistiré
+                </label>
+
+                <label>
+                  <input
+                    type="radio"
+                    name="attendance"
+                    value="no"
+                    onChange={(e) => {
+                      setAttendance(e.target.value);
+                      setMenu("");
+                    }}
+                  />
+                  No podré asistir
+                </label>
+              </div>
+
+              {/* MENÚ */}
+              {attendance === "yes" && (
+                <div className="rsvp-menu">
+                  <span className="rsvp-menu-title">
+                    Preferencia de menú
+                  </span>
+
                   <label>
-                    <input type="radio" name="attendance" required />
-                    Sí, asistiré
+                    <input
+                      type="radio"
+                      name="menu"
+                      value="carne"
+                      required
+                      onChange={(e) => setMenu(e.target.value)}
+                    />
+                    Carne · Meloso de ternera en su jugo con patata gratén
                   </label>
+
                   <label>
-                    <input type="radio" name="attendance" />
-                    No podré asistir
+                    <input
+                      type="radio"
+                      name="menu"
+                      value="pescado"
+                      onChange={(e) => setMenu(e.target.value)}
+                    />
+                    Pescado · Lubina con pesto rojo y pasta nero di seppia
+                    con daditos de calabacín y boniato
                   </label>
                 </div>
+              )}
 
-                {/* CANCIÓN */}
-                <input
-                  type="text"
-                  placeholder="Canción que te gustaría que sonara (opcional)"
-                />
+              {/* CANCIÓN */}
+              <input
+                type="text"
+                placeholder="Canción que te gustaría que sonara (opcional)"
+                value={song}
+                onChange={(e) => setSong(e.target.value)}
+              />
 
-                <textarea
-                  placeholder="Intolerancias, alergias o comentario"
-                  rows="3"
-                />
+              {/* COMENTARIOS */}
+              <textarea
+                placeholder="Intolerancias, alergias o comentario"
+                rows="3"
+                value={comments}
+                onChange={(e) => setComments(e.target.value)}
+              />
 
-                <button type="submit">Confirmar</button>
-              </form>
-            </>
+              {/* BOTÓN */}
+              <button type="submit" disabled={loading}>
+                {loading ? "Enviando..." : "Confirmar"}
+              </button>
+            </form>
           ) : (
             <div className="rsvp-success">
-              <span>¡Gracias por avisarnos!</span>
-              <p>Nos hace mucha ilusión contar contigo 💛</p>
+              {renderSuccessMessage()}
             </div>
           )}
         </div>
