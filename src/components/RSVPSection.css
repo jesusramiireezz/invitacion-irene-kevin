@@ -51,7 +51,7 @@
 /* ===== TEXTO ===== */
 
 .rsvp-intro-text {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 18px;
   line-height: 1.65;
   color: #2f2f2f;
@@ -74,7 +74,7 @@
 /* INPUTS */
 
 .rsvp-form input {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 13px;
   padding: 10px 12px;
   border-radius: 10px;
@@ -83,7 +83,7 @@
 }
 
 .rsvp-form textarea {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 13px;
   padding: 10px 12px;
   border-radius: 10px;
@@ -110,7 +110,7 @@
 .rsvp-choice {
   display: flex;
   justify-content: space-around;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 13px;
   color: #2f2f2f;
 }
@@ -134,7 +134,7 @@
 }
 
 .rsvp-menu-title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -142,7 +142,7 @@
 }
 
 .rsvp-menu label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 13px;
   color: #2f2f2f;
   line-height: 1.4;
@@ -165,7 +165,7 @@
   border: none;
   background: #6b7b5a;
   color: white;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -175,7 +175,7 @@
 /* ===== SUCCESS ===== */
 
 .rsvp-success span {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 26px;
 }
 

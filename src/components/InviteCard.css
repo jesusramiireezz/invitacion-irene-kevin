@@ -23,7 +23,7 @@
   }
 }
 
-/* Overlay */
+/* OVERLAY */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -35,7 +35,7 @@
   z-index: 1;
 }
 
-/* Contenido */
+/* CONTENIDO */
 .hero-content {
   position: absolute;
   inset: 0;
@@ -58,19 +58,24 @@
   gap: 14px;
 }
 
-/* Textos */
+/* ===== EYEBROW (IGUAL QUE INFOCARDS) ===== */
 .hero-eyebrow {
   font-family: 'Inter', sans-serif;
+  font-weight: 400;
   font-size: 11px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: #6b7b5a;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* ===== NOMBRES ===== */
 .hero-names {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: clamp(46px, 10vw, 84px);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 0.95;
 }
 
@@ -85,9 +90,10 @@
   margin: 6px 0;
 }
 
+/* ===== FECHA ===== */
 .hero-date {
   margin-top: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 13px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -95,7 +101,7 @@
   opacity: 0.85;
 }
 
-/* CTA */
+/* ===== CTA ===== */
 .hero-scroll {
   position: absolute;
   bottom: 32px;
@@ -107,13 +113,15 @@
 }
 
 .hero-cta {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
-  letter-spacing: 0.02em;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: #2f2f2f;
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
+/* FLECHA */
 .hero-arrow {
   width: 10px;
   height: 10px;
@@ -121,16 +129,4 @@
   border-bottom: 1px solid #2f2f2f;
   transform: rotate(45deg);
   opacity: 0.6;
-}
-
-
-@keyframes arrowFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(45deg);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translateY(6px) rotate(45deg);
-    opacity: 0.8;
-  }
 }

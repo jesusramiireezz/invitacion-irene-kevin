@@ -91,13 +91,13 @@ export default function App() {
             <section className="screen">
               <InviteCard reveal />
             </section>
-
-            <section className="screen">
-              <InfoCardsSection />
-            </section>
             <section className="screen">
               <PolaroidSection />
             </section>
+            <section className="screen">
+              <InfoCardsSection />
+            </section>
+
 
             <section className="screen">
               <ItinerarySection />

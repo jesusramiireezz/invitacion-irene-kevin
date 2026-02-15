@@ -72,12 +72,12 @@
 }
 
 .time-value {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 42px;
 }
 
 .time-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -87,12 +87,12 @@
 /* ===== LOCATION ===== */
 
 .location-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 26px;
 }
 
 .location-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 13px;
   color: #555;
 }
@@ -110,10 +110,11 @@
 }
 
 .map-link {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  text-decoration: none;
   color: #6b7b5a;
   border-bottom: 1px solid rgba(107, 123, 90, 0.45);
 }

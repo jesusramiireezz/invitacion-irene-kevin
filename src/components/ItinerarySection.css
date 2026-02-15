@@ -1,122 +1,140 @@
 /* ===== SECTION ===== */
 
 .itinerary-section {
-    min-height: 100vh;
-    padding: 0 24px;
-  
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(251, 246, 238, 0.92),
-        rgba(251, 246, 238, 0.92)
-      ),
-      url("../assets/finca.jpeg");
-    background-size: cover;
-    background-position: center;
-  
-    display: flex;
-    align-items: center;       /* ✅ CENTRO VERTICAL */
-    justify-content: center;   /* ✅ CENTRO HORIZONTAL */
-  }
-  
-  /* ===== WRAPPER ===== */
-  
-  .itinerary-wrapper {
-    width: 100%;
-    max-width: 420px;
-  }
-  
-  /* ===== CARD ===== */
-  
+  min-height: 100vh;
+  padding: 0 24px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(251, 246, 238, 0.92),
+      rgba(251, 246, 238, 0.92)
+    ),
+    url("../assets/finca.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== WRAPPER ===== */
+
+.itinerary-wrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ===== CARD ===== */
+
+.itinerary-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(6px);
+  border-radius: 18px;
+  padding: 44px 28px;
+  text-align: center;
+}
+
+/* ===== HEADER ===== */
+
+.itinerary-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #6b7b5a;
+}
+
+.itinerary-divider {
+  width: 32px;
+  height: 1px;
+  background: #6b7b5a;
+  margin: 14px auto 32px;
+  opacity: 0.55;
+}
+
+/* ===== TIMELINE ===== */
+
+.itinerary-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.itinerary-item {
+  display: grid;
+  grid-template-columns: 30px 90px 1fr;
+  align-items: center;
+  column-gap: 14px;
+  position: relative;
+}
+
+/* ICONO */
+
+.itinerary-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(107, 123, 90, 0.35);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #6b7b5a;
+  font-size: 12px;
+  background: rgba(255,255,255,0.4);
+}
+
+/* HORA */
+
+.itinerary-time {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  background: rgba(107, 123, 90, 0.12);
+  color: #6b7b5a;
+
+  padding: 7px 12px;
+  border-radius: 999px;
+
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* TEXTO (AQUÍ VUELVE LA MAGIA) */
+
+.itinerary-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  line-height: 1.25;
+  color: #2f2f2f;
+  text-align: left;
+}
+
+/* ===== SEPARACIÓN SUTIL ENTRE EVENTOS ===== */
+
+.itinerary-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: -12px;
+  width: 1px;
+  height: 12px;
+  background: rgba(107, 123, 90, 0.25);
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 480px) {
   .itinerary-card {
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(6px);
-    border-radius: 18px;
-    padding: 44px 28px;
-    text-align: center;
+    padding: 36px 22px;
   }
-  
-  /* ===== HEADER ===== */
-  
-  .itinerary-eyebrow {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: #6b7b5a;
-  }
-  
-  .itinerary-divider {
-    width: 32px;
-    height: 1px;
-    background: #6b7b5a;
-    margin: 14px auto 32px;
-    opacity: 0.55;
-  }
-  
-  /* ===== TIMELINE ===== */
-  
-  .itinerary-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-  
-  .itinerary-item {
-    display: grid;
-    grid-template-columns: 28px 86px 1fr;
-    align-items: center;
-    column-gap: 14px;
-  }
-  
-  /* ICONO */
-  .itinerary-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: 1px solid rgba(107, 123, 90, 0.35);
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    color: #6b7b5a;
-    font-size: 12px;
-  }
-  
-  /* HORA */
-  .itinerary-time {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  
-    background: rgba(107, 123, 90, 0.12);
-    color: #6b7b5a;
-  
-    padding: 6px 12px;
-    border-radius: 999px;
-  
-    white-space: nowrap;
-    text-align: center;
-    line-height: 1;
-  }
-  
-  
-  /* TEXTO */
+
   .itinerary-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    line-height: 1.2;
-    color: #2f2f2f;
-    text-align: left;
+    font-size: 19px;
   }
-  
-  /* ===== MOBILE ===== */
-  
-  @media (max-width: 480px) {
-    .itinerary-card {
-      padding: 36px 22px;
-    }
-  }
-  
+}

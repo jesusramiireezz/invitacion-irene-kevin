@@ -40,6 +40,16 @@ export default function ParticipaSection() {
             <img src={qrFotos} alt="QR Fotos" />
           </div>
 
+          {/* 👗 CÓDIGO DE VESTIMENTA */}
+          <div className="participa-divider big" />
+
+          <span className="participa-eyebrow">Código de vestimenta</span>
+          <div className="participa-divider" />
+
+          <p className="participa-text">
+            Con mucho cariño, os pedimos evitar el color blanco.
+          </p>
+
         </div>
       </motion.div>
     </section>

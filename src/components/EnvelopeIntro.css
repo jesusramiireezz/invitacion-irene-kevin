@@ -36,7 +36,7 @@
   background: #6b7b5a;
   color: #fff;
 
-  font-family: 'Playfair Display', serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 20px;
   letter-spacing: 0.08em;
 
@@ -55,7 +55,7 @@
 /* Texto */
 .tap-hint {
   margin-top: 28px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
