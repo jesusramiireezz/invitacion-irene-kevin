@@ -49,7 +49,7 @@ export default function RSVPSection() {
       return (
         <>
           <span>¡Gracias por avisarnos!</span>
-          <p>Nos hace mucha ilusión contar contigo 💛</p>
+          <p>Nos hace mucha ilusión contar contigo</p>
         </>
       );
     }
@@ -59,7 +59,7 @@ export default function RSVPSection() {
         <span>¡Gracias por avisarnos!</span>
         <p>
           Sentimos mucho que no puedas acompañarnos,
-          pero te tendremos muy presente ese día 🤍
+          pero te tendremos muy presente ese día
         </p>
       </>
     );
