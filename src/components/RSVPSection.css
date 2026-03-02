@@ -72,13 +72,13 @@
 }
 
 .rsvp-eyebrow {
+  display: block;         
+  text-align: center;
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: #6b7b5a;
-  text-align: center;
-  margin: 0 auto;
 }
 
 .rsvp-divider {
@@ -87,7 +87,6 @@
   background: #6b7b5a;
   margin: 14px auto 28px;
   opacity: 0.55;
-  text-align: center;
 }
 
 .rsvp-intro-text {
