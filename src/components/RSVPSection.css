@@ -245,3 +245,14 @@
   color: #555;
   margin-top: 8px;
 }
+@media (max-width: 480px) {
+  .rsvp-choice {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .rsvp-choice label {
+    white-space: normal;
+  }
+}
