@@ -37,7 +37,7 @@
   text-align: center;
 }
 
-/* ===== FOTO RSVP ===== */
+/* ===== FOTO ===== */
 
 .rsvp-photo-wrapper {
   margin: 32px 0 40px;
@@ -94,7 +94,6 @@
   line-height: 1.65;
   color: #2c2c2c;
   text-align: justify;
-  text-justify: inter-word;
   margin-bottom: 28px;
   opacity: 0.9;
 }
@@ -107,41 +106,7 @@
   gap: 14px;
 }
 
-/* ===== RADIOS ELEGANTES Y PEQUEÑOS ===== */
-
-.rsvp-choice input,
-.rsvp-menu input {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  border: 1.5px solid #6b7b5a;
-  border-radius: 50%;
-  margin-right: 6px;
-  position: relative;
-  cursor: pointer;
-  background: transparent;
-  vertical-align: middle;
-}
-
-.rsvp-choice input:checked,
-.rsvp-menu input:checked {
-  background: #6b7b5a;
-}
-
-.rsvp-choice input:checked::after,
-.rsvp-menu input:checked::after {
-  content: "";
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: white;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
+/* ===== INPUTS ===== */
 
 .rsvp-form input,
 .rsvp-form textarea {
@@ -149,7 +114,7 @@
   font-size: 13px;
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid rgba(107, 123, 90, 0.45); 
+  border: 1px solid rgba(107, 123, 90, 0.45);
   background: rgba(255,255,255,0.85);
   width: 100%;
   box-sizing: border-box;
@@ -160,15 +125,11 @@
   resize: none;
 }
 
-/* Placeholder */
-
 .rsvp-form input::placeholder,
 .rsvp-form textarea::placeholder {
-  color: #000000;
+  color: #000;
   opacity: 1;
 }
-
-/* Focus */
 
 .rsvp-form input:focus,
 .rsvp-form textarea:focus {
@@ -181,28 +142,39 @@
 
 .rsvp-choice {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 28px;
   font-family: 'Libre Baskerville', serif;
   font-size: 14px;
-  color: black;
+  color: #000;
+  margin: 6px 0 4px;
+}
+
+.rsvp-choice label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .rsvp-choice input {
-  margin-right: 6px;
+  accent-color: #6b7b5a;
+  cursor: pointer;
 }
 
 /* ===== MENU ===== */
 
 .rsvp-menu {
   margin-top: 12px;
-  padding: 14px 12px;
+  padding: 16px 14px;
   border-radius: 14px;
   background: rgba(255,255,255,0.55);
   text-align: left;
 
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
 }
 
 .rsvp-menu-title {
@@ -214,17 +186,22 @@
 }
 
 .rsvp-menu label {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  align-items: start;
+
   font-family: 'Libre Baskerville', serif;
-  font-size: 13px;
-  color: #000000;
-  line-height: 1.4;
-  display: flex;
-  align-items: flex-start;
+  font-size: 14px;
+  color: #000;
+  line-height: 1.5;
+  cursor: pointer;
 }
 
 .rsvp-menu input {
-  margin-right: 8px;
-  margin-top: 2px;
+  margin-top: 4px;
+  accent-color: #6b7b5a;
+  cursor: pointer;
 }
 
 /* ===== BOTÓN ===== */
