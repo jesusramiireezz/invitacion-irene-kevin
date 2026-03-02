@@ -140,28 +140,28 @@
   box-shadow: 0 0 0 3px rgba(107, 123, 90, 0.25);
 }
 
-/* ===== ASISTENCIA ==== */
+/* ===== ASISTENCIA ===== */
 
 .rsvp-choice {
   display: flex;
-  justify-content: center;
-  gap: 18px; /* antes 28 */
+  flex-direction: column;
+  gap: 14px;
   font-family: 'Libre Baskerville', serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #000;
-  margin: 6px 0 4px;
-  flex-wrap: wrap;
+  margin: 10px 0 6px;
 }
 
 .rsvp-choice label {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   cursor: pointer;
 }
 
 .rsvp-choice input {
   accent-color: #6b7b5a;
+  transform: scale(1.1);
   cursor: pointer;
 }
 
