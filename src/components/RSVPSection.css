@@ -107,30 +107,34 @@
   gap: 14px;
 }
 
+/* ===== RADIOS ELEGANTES Y PEQUEÑOS ===== */
+
 .rsvp-choice input,
 .rsvp-menu input {
   appearance: none;
   -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border: 1.5px solid #6b7b5a;
   border-radius: 50%;
-  margin-right: 8px;
+  margin-right: 6px;
   position: relative;
   cursor: pointer;
+  background: transparent;
+  vertical-align: middle;
 }
 
 .rsvp-choice input:checked,
 .rsvp-menu input:checked {
-  background-color: #6b7b5a;
+  background: #6b7b5a;
 }
 
 .rsvp-choice input:checked::after,
 .rsvp-menu input:checked::after {
   content: "";
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
   background: white;
   border-radius: 50%;
   top: 50%;
