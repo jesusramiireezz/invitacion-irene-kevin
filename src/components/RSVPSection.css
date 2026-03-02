@@ -1,8 +1,7 @@
 /* ===== SECTION ===== */
 
 .rsvp-section {
-  min-height: 100vh;
-  padding: 0 24px;
+  padding: 80px 24px;
 
   background:
     linear-gradient(
@@ -14,10 +13,6 @@
 
   background-size: cover;
   background-position: center;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* ===== WRAPPER ===== */
@@ -25,6 +20,7 @@
 .rsvp-wrapper {
   width: 100%;
   max-width: 420px;
+  margin: 0 auto;
 }
 
 /* ===== CARD ===== */
