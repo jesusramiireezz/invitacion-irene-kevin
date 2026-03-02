@@ -34,7 +34,6 @@
   backdrop-filter: blur(6px);
   border-radius: 18px;
   padding: 44px 28px;
-  text-align: center;
 }
 
 /* ===== FOTO ===== */
@@ -70,6 +69,12 @@
 
 /* ===== HEADER ===== */
 
+.rsvp-eyebrow,
+.rsvp-divider,
+.rsvp-intro-text {
+  text-align: center;
+}
+
 .rsvp-eyebrow {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
@@ -86,14 +91,11 @@
   opacity: 0.55;
 }
 
-/* ===== TEXTO ===== */
-
 .rsvp-intro-text {
   font-family: 'Libre Baskerville', serif;
   font-size: 18px;
   line-height: 1.65;
   color: #2c2c2c;
-  text-align: justify;
   margin-bottom: 28px;
   opacity: 0.9;
 }
@@ -155,12 +157,21 @@
   align-items: center;
   gap: 6px;
   cursor: pointer;
-  white-space: nowrap;
 }
 
 .rsvp-choice input {
   accent-color: #6b7b5a;
   cursor: pointer;
+}
+
+/* En móvil se apilan */
+
+@media (max-width: 480px) {
+  .rsvp-choice {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 }
 
 /* ===== MENU ===== */
@@ -234,6 +245,10 @@
 
 /* ===== SUCCESS ===== */
 
+.rsvp-success {
+  text-align: center;
+}
+
 .rsvp-success span {
   font-family: 'Libre Baskerville', serif;
   font-size: 26px;
@@ -244,15 +259,4 @@
   font-size: 14px;
   color: #555;
   margin-top: 8px;
-}
-@media (max-width: 480px) {
-  .rsvp-choice {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .rsvp-choice label {
-    white-space: normal;
-  }
 }
