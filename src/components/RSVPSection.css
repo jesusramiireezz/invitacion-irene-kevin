@@ -107,18 +107,48 @@
   gap: 14px;
 }
 
-/* ===== INPUTS UNIFICADOS (TODOS IGUALES) ===== */
+.rsvp-choice input,
+.rsvp-menu input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #6b7b5a;
+  border-radius: 50%;
+  margin-right: 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.rsvp-choice input:checked,
+.rsvp-menu input:checked {
+  background-color: #6b7b5a;
+}
+
+.rsvp-choice input:checked::after,
+.rsvp-menu input:checked::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 .rsvp-form input,
 .rsvp-form textarea {
   font-family: 'Libre Baskerville', serif;
-  font-size: 15px;
-  padding: 14px 16px;
-  border-radius: 14px;
-  border: 1px solid rgba(107, 123, 90, 0.35);
-  background: #ffffff;
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(107, 123, 90, 0.45); 
+  background: rgba(255,255,255,0.85);
   width: 100%;
-  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .rsvp-form textarea {
