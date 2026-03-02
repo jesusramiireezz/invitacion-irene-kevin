@@ -71,6 +71,34 @@
     display: block;
   }
   
+  /* ===== FOTO PARTICIPA ===== */
+
+.participa-photo-wrapper {
+  margin-top: 50px;
+}
+
+.participa-photo {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 26px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.12);
+}
+
+.participa-photo img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .participa-photo img {
+    height: 400px;
+  }
+}
   /* MOBILE */
   @media (max-width: 480px) {
     .participa-card {

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import "./RSVPSection.css";
+import fotoRSVP from "../assets/foto4.jpeg";
 
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbx3bPHt9AjUaHc0DusKGR4GlK-i3wjZQ4mIrkOaxCdVsjd6niD4GRDfPIMkPh2AaEEK7g/exec";
@@ -10,7 +11,7 @@ export default function RSVPSection() {
   const [loading, setLoading] = useState(false);
 
   const [name, setName] = useState("");
-  const [attendance, setAttendance] = useState(""); // yes / no
+  const [attendance, setAttendance] = useState("");
   const [menu, setMenu] = useState("");
   const [song, setSong] = useState("");
   const [comments, setComments] = useState("");
@@ -73,6 +74,8 @@ export default function RSVPSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
+
+        {/* CARD */}
         <div className="rsvp-card">
           <span className="rsvp-eyebrow">Confirmar asistencia</span>
           <div className="rsvp-divider" />
@@ -82,19 +85,29 @@ export default function RSVPSection() {
             pero compartirlos con las personas que queremos
             los hace inolvidables.
           </p>
+          
+        <motion.div
+          className="rsvp-photo-wrapper"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+        >
+          <div className="rsvp-photo">
+            <img src={fotoRSVP} alt="Irene, Kevin y su hijo" />
+          </div>
+        </motion.div>
 
           {!sent ? (
             <form className="rsvp-form" onSubmit={handleSubmit}>
-              {/* NOMBRE */}
               <input
                 type="text"
-                placeholder="Tu nombre"
+                placeholder="Nombre y apellidos"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
 
-              {/* ASISTENCIA */}
               <div className="rsvp-choice">
                 <label>
                   <input
@@ -121,7 +134,6 @@ export default function RSVPSection() {
                 </label>
               </div>
 
-              {/* MENÚ */}
               {attendance === "yes" && (
                 <div className="rsvp-menu">
                   <span className="rsvp-menu-title">
@@ -147,12 +159,10 @@ export default function RSVPSection() {
                       onChange={(e) => setMenu(e.target.value)}
                     />
                     Pescado · Lubina con pesto rojo y pasta nero di seppia
-                    con daditos de calabacín y boniato
                   </label>
                 </div>
               )}
 
-              {/* CANCIÓN */}
               <input
                 type="text"
                 placeholder="Canción que te gustaría que sonara (opcional)"
@@ -160,7 +170,6 @@ export default function RSVPSection() {
                 onChange={(e) => setSong(e.target.value)}
               />
 
-              {/* COMENTARIOS */}
               <textarea
                 placeholder="Intolerancias, alergias o comentario"
                 rows="3"
@@ -168,7 +177,6 @@ export default function RSVPSection() {
                 onChange={(e) => setComments(e.target.value)}
               />
 
-              {/* BOTÓN */}
               <button type="submit" disabled={loading}>
                 {loading ? "Enviando..." : "Confirmar"}
               </button>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import fotoUbicacion from "../assets/foto2.jpeg";
 import "./InfoCardsSection.css";
 
 const WEDDING_DATE = new Date("2026-09-26T17:00:00");
@@ -106,6 +107,15 @@ export default function InfoCardsSection() {
           >
             Ver en Google Maps
           </motion.a>
+        </motion.div>
+
+        <motion.div
+          className="location-photo-wrapper"
+          variants={cardVariants}
+        >
+          <div className="location-photo">
+            <img src={fotoUbicacion} alt="Irene y Kevin" />
+          </div>
         </motion.div>
       </motion.div>
     </section>

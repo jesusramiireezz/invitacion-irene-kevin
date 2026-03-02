@@ -15,6 +15,7 @@ import p11 from "../assets/11.jpeg";
 import p12 from "../assets/12.jpeg";
 import p13 from "../assets/13.jpeg";
 import p14 from "../assets/14.jpeg";
+import fotoHero from "../assets/foto1.jpeg";
 
 import "./PolaroidSection.css";
 
@@ -32,7 +33,7 @@ const photos = [
   { src: p11, rotate: -2 },
   { src: p12, rotate: 3 },
   { src: p13, rotate: -3 },
-  { src: p14, rotate: 2 }
+  { src: p14, rotate: 2 },
 ];
 
 export default function PhotosSection() {
@@ -47,24 +48,30 @@ export default function PhotosSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <div className="photos-card">
+        {/* HERO IMAGE */}
+        <div className="hero-wrapper">
+          <div className="hero-photo">
+            <img src={fotoHero} alt="Irene y Kevin" />
+          </div>
+        </div>
 
-          {/* TEXTO EMOCIONAL */}
-          <span className="photos-eyebrow">Nos casamos</span>
+        {/* CARD */}
+        <div className="photos-card">
+          <span className="photos-eyebrow">Un viaje que lo cambió todo</span>
           <div className="photos-divider" />
 
           <p className="photos-text">
-            Por fin, después de 9 años, Kevin decidió dar el paso
-            en uno de los viajes más especiales para nosotros, Malmö.
+            Después de 9 años, por fin Kevin decidió dar el paso en uno de los
+            viajes más especiales para nosotros, Malmö.
           </p>
 
           <div className="photos-divider big" />
 
-          {/* TITULO FOTOS */}
-          <span className="photos-eyebrow">Nuestra historia por el mundo</span>
+          <span className="photos-eyebrow">
+            Nuestra historia por el mundo
+          </span>
           <div className="photos-divider" />
 
-          {/* POLAROIDS */}
           <div className="polaroid-track">
             {photos.map((photo, i) => (
               <div
@@ -84,7 +91,6 @@ export default function PhotosSection() {
         </div>
       </motion.div>
 
-      {/* MODAL */}
       {activePhoto && (
         <div className="photo-modal">
           <button
