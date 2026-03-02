@@ -140,16 +140,17 @@
   box-shadow: 0 0 0 3px rgba(107, 123, 90, 0.25);
 }
 
-/* ===== ASISTENCIA ===== */
+/* ===== ASISTENCIA ==== */
 
 .rsvp-choice {
   display: flex;
   justify-content: center;
-  gap: 28px;
+  gap: 18px; /* antes 28 */
   font-family: 'Libre Baskerville', serif;
   font-size: 14px;
   color: #000;
   margin: 6px 0 4px;
+  flex-wrap: wrap;
 }
 
 .rsvp-choice label {
@@ -162,16 +163,6 @@
 .rsvp-choice input {
   accent-color: #6b7b5a;
   cursor: pointer;
-}
-
-/* En móvil se apilan */
-
-@media (max-width: 480px) {
-  .rsvp-choice {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
 }
 
 /* ===== MENU ===== */
