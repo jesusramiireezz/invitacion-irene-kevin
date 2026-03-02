@@ -25,7 +25,6 @@ export default function App() {
       .catch(() => {});
   };
 
-  /* CONTROL DE VISIBILIDAD */
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -48,7 +47,7 @@ export default function App() {
 
   const handleIntroFinish = () => {
     setShowIntro(false);
-    playAudio(); // interacción válida
+    playAudio();
   };
 
   return (
@@ -97,7 +96,6 @@ export default function App() {
             <section className="screen">
               <InfoCardsSection />
             </section>
-
 
             <section className="screen">
               <ItinerarySection />

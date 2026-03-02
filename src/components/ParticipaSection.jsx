@@ -25,23 +25,9 @@ export default function ParticipaSection() {
             que sonara en nuestra boda.
           </p>
 
-          {/* 📸 FOTOS */}
-          <div className="participa-divider big" />
 
-          <span className="participa-eyebrow">Fotos del día</span>
-          <div className="participa-divider" />
-
-          <p className="participa-text">
-            Cada imagen que compartáis será un valioso recuerdo
-            para el resto de nuestras vidas.
-          </p>
-
-          <div className="qr-box">
-            <img src={qrFotos} alt="QR Fotos" />
-          </div>
         </div>
 
-        {/* FOTO DEBAJO DEL QR */}
         <motion.div
           className="participa-photo-wrapper"
           initial={{ opacity: 0, y: 30 }}
