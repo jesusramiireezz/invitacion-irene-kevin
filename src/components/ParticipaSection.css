@@ -84,7 +84,27 @@
   object-fit: cover;
   display: block;
 }
+.participa-link {
+  display: inline-block;
+  margin-top: 18px;
 
+  font-family: 'Libre Baskerville', serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  color: #6b7b5a;
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(107, 123, 90, 0.45);
+  padding-bottom: 4px;
+
+  transition: opacity 0.25s ease;
+}
+
+.participa-link:hover {
+  opacity: 0.7;
+}
 /* MOBILE */
 
 @media (max-width: 480px) {
