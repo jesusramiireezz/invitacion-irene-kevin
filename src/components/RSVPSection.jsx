@@ -4,7 +4,7 @@ import "./RSVPSection.css";
 import fotoRSVP from "../assets/foto4.jpeg";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbx3bPHt9AjUaHc0DusKGR4GlK-i3wjZQ4mIrkOaxCdVsjd6niD4GRDfPIMkPh2AaEEK7g/exec";
+  "https://script.google.com/macros/s/AKfycbxuleiU-Ruofss15FDEb7_dvdzvhJYytPZ1hDd6EnP71TV97d5J7vy8FQ5pfCviQki9_Q/exec";
 
 export default function RSVPSection() {
   const [sent, setSent] = useState(false);
