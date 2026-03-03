@@ -33,7 +33,7 @@ export default function ParticipaSection() {
           <div className="participa-divider" />
 
           <p className="participa-text">
-            Puedes subir tus fotos escaneando este código
+            Podrás subir tus fotos del día escaneando este código
             o a través de este enlace:
           </p>
 
